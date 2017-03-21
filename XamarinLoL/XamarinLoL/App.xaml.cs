@@ -13,7 +13,7 @@ namespace XamarinLoL
         {
             InitializeComponent();
 
-            MainPage = new XamarinLoL.MainPage();
+            MainPage = new XamarinLoL.Views.SearchSummonerPage();
         }
 
         protected override void OnStart()

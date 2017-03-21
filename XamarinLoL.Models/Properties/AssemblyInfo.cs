@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("XamarinLoL.Models")]
+[assembly: AssemblyTitle("XamarinLol.Models")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("XamarinLoL.Models")]
+[assembly: AssemblyProduct("XamarinLol.Models")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("76ea3012-c21c-4765-b1b2-80c59fc55c70")]
+[assembly: Guid("b40536fe-c1b8-414b-85b2-dc15168e9992")]
 
 // Version information for an assembly consists of the following four values:
 //
