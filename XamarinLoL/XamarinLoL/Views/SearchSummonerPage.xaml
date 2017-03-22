@@ -4,6 +4,6 @@
              x:Class="XamarinLoL.Views.SearchSummonerPage">
     <StackLayout>
         <Entry Text="{Binding SummonerName}"></Entry>
-        <Button Command="{Binding Navigate}"></Button>
+        <Button Text="Buscar Invocador" Command="{Binding Navigate}"></Button>
     </StackLayout>
 </ContentPage>
