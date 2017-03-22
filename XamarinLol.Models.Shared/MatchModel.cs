@@ -20,4 +20,12 @@ namespace XamarinLoL.Models
         public string ChampionIcon { get; set; }
         public string ChampionName { get; set; }
     }
+    public class SummonerModel
+    {
+        public long SummonerId { get; set; }
+        public string SummonerName { get; set; }
+        public string SummonerIcon { get; set; }
+        public long SummonerLevel { get; set; }
+    }
+}
 }

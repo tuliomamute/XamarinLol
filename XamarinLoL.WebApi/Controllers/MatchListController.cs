@@ -61,7 +61,7 @@ namespace XamarinLoL.WebApi.Controllers
         {
             TextInfo myTI = new CultureInfo("en-US", false).TextInfo;
 
-            return $"{ConfigurationManager.AppSettings["UrlIconChampion"]}/{myTI.ToTitleCase(name.Replace(" ", string.Empty))}";
+            return $"{ConfigurationManager.AppSettings["UrlIconChampion"]}/{myTI.ToTitleCase(name.Replace(" ", string.Empty))}.png";
         }
     }
 }
