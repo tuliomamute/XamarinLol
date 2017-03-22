@@ -17,6 +17,7 @@ namespace XamarinLoL.ExternalServices
             try
             {
 
+
                 SummonerModel model = null;
                 using (HttpClient client = new HttpClient())
                 {
