@@ -17,7 +17,7 @@ namespace XamarinLoL.ExternalServices
             SummonerModel model = null;
             using (HttpClient client = new HttpClient())
             {
-                client.BaseAddress = new Uri("http://localhost:55268/");
+                client.BaseAddress = new Uri(GlobalClasses.GlobalProperties.UrlApi);
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
