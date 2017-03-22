@@ -14,21 +14,31 @@ namespace XamarinLoL.ExternalServices
     {
         public static async void FindSummoner(string Summoner)
         {
-            SummonerModel model = null;
-            using (HttpClient client = new HttpClient())
+            try
             {
-                client.BaseAddress = new Uri(GlobalClasses.GlobalProperties.UrlApi);
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                HttpResponseMessage response = await client.GetAsync("api/Summoner");
+                SummonerModel model = null;
+                using (HttpClient client = new HttpClient())
+                {
+                    client.BaseAddress = new Uri(GlobalClasses.GlobalProperties.UrlApi);
+                    client.DefaultRequestHeaders.Accept.Clear();
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                if (response.IsSuccessStatusCode)
-                    model = JsonConvert.DeserializeObject<SummonerModel>(await response.Content.ReadAsStringAsync());
+                    HttpResponseMessage response = await client.GetAsync($"api/Summoner/Summonername={Summoner}");
 
-                App.Summoner = model;
+                    if (response.IsSuccessStatusCode)
+                        model = JsonConvert.DeserializeObject<SummonerModel>(await response.Content.ReadAsStringAsync());
 
+                    App.Summoner = model;
+
+                }
             }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
         }
     }
 }
