@@ -11,6 +11,7 @@ namespace XamarinLoL.ViewModel
     class SearchSummonerViewModel
     {
         public ICommand Navigate { get; set; }
+        public string SummonerName { get; set; }
         public SearchSummonerViewModel()
         {
             Navigate = new Command(() => FindSummoner());

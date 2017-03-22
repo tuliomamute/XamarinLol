@@ -2,4 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="XamarinLoL.Views.SearchSummonerPage">
+    <StackLayout>
+        <Entry Text="{Binding SummonerName}"></Entry>
+        <Button Command="{Binding Navigate}"></Button>
+    </StackLayout>
 </ContentPage>
