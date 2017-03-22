@@ -4,11 +4,13 @@ using System.Linq;
 using System.Text;
 
 using Xamarin.Forms;
+using XamarinLoL.Models;
 
 namespace XamarinLoL
 {
     public partial class App : Application
     {
+        public static SummonerModel Summoner { get; set; }
         public App()
         {
             InitializeComponent();

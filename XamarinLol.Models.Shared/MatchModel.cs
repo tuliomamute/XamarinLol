@@ -28,4 +28,3 @@ namespace XamarinLoL.Models
         public long SummonerLevel { get; set; }
     }
 }
-}
