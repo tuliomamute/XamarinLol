@@ -22,6 +22,7 @@ namespace XamarinLoL.ExternalServices
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
                 HttpResponseMessage response = await client.GetAsync("api/Summoner");
+
                 if (response.IsSuccessStatusCode)
                     model = JsonConvert.DeserializeObject<SummonerModel>(await response.Content.ReadAsStringAsync());
 
