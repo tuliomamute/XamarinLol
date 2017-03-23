@@ -8,6 +8,6 @@ namespace XamarinLoL.GlobalClasses
 {
     public static class GlobalProperties
     {
-        public const string UrlApi = "http://ATTBHZW970/XamarinLoL";
-    }
+        public const string UrlApi = "http://xamarinlolwebapi.azurewebsites.net";
+     }
 }
