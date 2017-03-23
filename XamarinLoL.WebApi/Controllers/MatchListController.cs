@@ -8,11 +8,15 @@ using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 using XamarinLoL.Models;
 
 namespace XamarinLoL.WebApi.Controllers
 {
+    /// <summary>
+    /// Matchs Information
+    /// </summary>
     public class MatchListController : ApiController
     {
         /// <summary>
@@ -20,7 +24,7 @@ namespace XamarinLoL.WebApi.Controllers
         /// </summary>
         /// <param name="SummonerId"></param>
         /// <returns></returns>
-        public List<MatchModel> Get(int SummonerId)
+        public async Task<List<MatchModel>> Get(int SummonerId)
         {
             List<MatchModel> listmodel = new List<MatchModel>();
             MatchList match = WebApiApplication.api.GetMatchListAsync(RiotSharp.Region.br, SummonerId, null, null, null, null, null, 20, 0).Result;
@@ -31,12 +35,12 @@ namespace XamarinLoL.WebApi.Controllers
             foreach (MatchReference item in match.Matches)
             {
                 //Find Match Details based on Summoner Id
-                detail = WebApiApplication.api.GetMatchAsync(RiotSharp.Region.br, item.MatchID).Result;
+                detail = await WebApiApplication.api.GetMatchAsync(RiotSharp.Region.br, item.MatchID);
                 model = detail.ParticipantIdentities.Where(x => x.Player.SummonerId == SummonerId)
                     .Join(detail.Participants, b => b.ParticipantId, a => a.ParticipantId, (b, a) => new MatchModel { IsWinner = a.Stats.Winner, KdaPlayer = $" {a.Stats.Kills}/{a.Stats.Deaths}/{a.Stats.Assists}" }).FirstOrDefault();
 
                 //Find Champion Details
-                champ = WebApiApplication.staticapi.GetChampion(RiotSharp.Region.br, (int)item.ChampionID);
+                champ = await WebApiApplication.staticapi.GetChampionAsync(RiotSharp.Region.br, (int)item.ChampionID);
                 model.Champion = new ChampionModel { ChampionId = champ.Id, ChampionName = champ.Name, ChampionIcon = ReturnUrlIcon(champ.Name) };
 
                 listmodel.Add(model);

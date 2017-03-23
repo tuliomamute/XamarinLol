@@ -5,20 +5,35 @@ using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 using XamarinLoL.Models;
 
 namespace XamarinLoL.WebApi.Controllers
 {
+    /// <summary>
+    /// Summoner Information
+    /// </summary>
     public class SummonerController : ApiController
     {
-        public SummonerModel Get(string SummonerName)
+        /// <summary>
+        /// Get Summoner Information
+        /// </summary>
+        /// <param name="SummonerName"></param>
+        /// <returns></returns>
+        public async Task<SummonerModel> Get(string SummonerName)
         {
-            Summoner summoner = WebApiApplication.api.GetSummonerAsync(RiotSharp.Region.br, SummonerName).Result;
-            SummonerModel model = new SummonerModel() { SummonerName = summoner.Name
-                , SummonerId = summoner.Id
-                , SummonerIcon = ReturnUrlChampion(summoner.Id)
-                , SummonerLevel = summoner.Level };
+            Summoner summoner = await WebApiApplication.api.GetSummonerAsync(RiotSharp.Region.br, SummonerName);
+            SummonerModel model = new SummonerModel()
+            {
+                SummonerName = summoner.Name
+                ,
+                SummonerId = summoner.Id
+                ,
+                SummonerIcon = ReturnUrlChampion(summoner.ProfileIconId)
+                ,
+                SummonerLevel = summoner.Level
+            };
 
             return model;
         }
