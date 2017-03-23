@@ -20,6 +20,9 @@ namespace XamarinLoL.ViewModel
             Navigate = new Command(() => FindSummoner());
         }
 
+        /// <summary>
+        /// Method to find a Summoner and navigate
+        /// </summary>
         private async void FindSummoner()
         {
             RiotService.FindSummoner(SummonerName);
