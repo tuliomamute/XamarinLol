@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 
 using Xamarin.Forms;
+using XamarinLoL.InternalServices;
 using XamarinLoL.Models;
 
 namespace XamarinLoL
@@ -11,6 +12,9 @@ namespace XamarinLoL
     public partial class App : Application
     {
         public static SummonerModel Summoner { get; set; }
+        public static NavigationService NavigationService { get; }
+       = new NavigationService();
+
         public App()
         {
             InitializeComponent();

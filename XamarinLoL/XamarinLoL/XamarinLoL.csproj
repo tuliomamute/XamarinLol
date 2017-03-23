@@ -41,6 +41,7 @@
     <Compile Include="ExternalServices\RiotService.cs" />
     <Compile Include="GlobalClasses\GlobalProperties.cs" />
     <Compile Include="GlobalClasses\MasterPageItem.cs" />
+    <Compile Include="InternalServices\NavigationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\MasterMasterDetailViewModel.cs" />
     <Compile Include="ViewModel\SearchSummonerViewModel.cs" />

@@ -23,6 +23,8 @@ namespace XamarinLoL.ViewModel
         private async void FindSummoner()
         {
             RiotService.FindSummoner(SummonerName);
+
+            App.NavigationService.NavigateTo("MenuMasterDetailPage");
         }
     }
 }
