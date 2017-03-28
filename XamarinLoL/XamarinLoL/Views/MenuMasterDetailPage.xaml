@@ -6,7 +6,7 @@
 
     <MasterDetailPage.Master>
         <!--PaginaMestre-->
-        <local:MasterMasterDetailPage Padding="20,20,0,0" x:Name="masterPage"></local:MasterMasterDetailPage>
+        <local:MasterMasterDetailPage x:Name="masterPage"></local:MasterMasterDetailPage>
     </MasterDetailPage.Master>
     <MasterDetailPage.Detail>
         <NavigationPage>

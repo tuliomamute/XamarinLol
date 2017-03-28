@@ -17,11 +17,8 @@ namespace XamarinLoL.Views
         public MenuMasterDetailPage()
         {
             InitializeComponent();
-            master = new MasterMasterDetailPage();
-            Master = master;
-            Detail = new NavigationPage(new SummonerProfilePage());
-
             masterPage.ListPaginas.ItemSelected += OnItemSelected;
+
         }
         void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {

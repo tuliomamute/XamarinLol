@@ -2,9 +2,11 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="XamarinLoL.Views.MasterMasterDetailPage"
-             Title="Menu Principal">
+             Title="Menu Principal"
+             Icon="hamburguer.png"
+             Padding="0,40,0,0">
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout VerticalOptions="FillAndExpand">
             <ListView x:Name="lstPaginas" VerticalOptions="FillAndExpand" SeparatorVisibility="None" ItemsSource="{Binding masterPageItems}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
