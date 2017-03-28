@@ -6,6 +6,7 @@ using System.Text;
 using Xamarin.Forms;
 using XamarinLoL.InternalServices;
 using XamarinLoL.Models;
+using XamarinLoL.Views;
 
 namespace XamarinLoL
 {
@@ -18,8 +19,11 @@ namespace XamarinLoL
         public App()
         {
             InitializeComponent();
+            NavigationService.Configure("MasterMasterDetailPage", typeof(MasterMasterDetailPage));
+            NavigationService.Configure("MenuMasterDetailPage", typeof(MenuMasterDetailPage));
+            NavigationService.Configure("SummonerProfilePage", typeof(SummonerProfilePage));
 
-            MainPage = new XamarinLoL.Views.SearchSummonerPage();
+            MainPage = new NavigationPage(new XamarinLoL.Views.SearchSummonerPage());
         }
 
         protected override void OnStart()

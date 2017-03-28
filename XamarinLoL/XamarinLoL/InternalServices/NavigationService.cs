@@ -20,7 +20,7 @@ namespace XamarinLoL.InternalServices
         public void GoBack() => MainPage.Navigation.PopAsync();
 
         public void NavigateTo(string pageKey, object parameter = null,
-            HistoryBehavior historyBehavior = HistoryBehavior.Default)
+            HistoryBehavior historyBehavior = HistoryBehavior.Default, PresentationBehavior present = PresentationBehavior.Normal)
         {
             Type pageType;
             if (pages.TryGetValue(pageKey, out pageType))
@@ -39,7 +39,10 @@ namespace XamarinLoL.InternalServices
                 }
                 else
                 {
-                    MainPage.Navigation.PushAsync(displayPage);
+                    if (present == PresentationBehavior.Normal)
+                        MainPage.Navigation.PushAsync(displayPage);
+                    else
+                        MainPage.Navigation.PushModalAsync(displayPage);
                 }
             }
             else
@@ -54,6 +57,12 @@ namespace XamarinLoL.InternalServices
     {
         Default,
         ClearHistory
+    }
+
+    public enum PresentationBehavior
+    {
+        Normal,
+        Modal
     }
 
     public static class NavigationExtensions

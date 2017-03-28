@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 using XamarinLoL.ExternalServices;
+using XamarinLoL.InternalServices;
 
 namespace XamarinLoL.ViewModel
 {
@@ -25,9 +26,16 @@ namespace XamarinLoL.ViewModel
         /// </summary>
         private async void FindSummoner()
         {
-            RiotService.FindSummoner(SummonerName);
+            try
+            {
+                RiotService.FindSummoner(SummonerName);
+                App.NavigationService.NavigateTo("MenuMasterDetailPage", null, HistoryBehavior.Default, PresentationBehavior.Modal);
+            }
 
-            App.NavigationService.NavigateTo("MenuMasterDetailPage");
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }
