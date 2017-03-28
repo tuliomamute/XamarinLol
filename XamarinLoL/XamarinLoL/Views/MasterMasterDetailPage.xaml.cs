@@ -21,6 +21,19 @@ namespace XamarinLoL.Views
             InitializeComponent();
             BindingContext = new MasterMasterDetailViewModel();
 
+            List<MasterPageItem> masterPageItems = null;
+
+            masterPageItems = new List<MasterPageItem>();
+
+            masterPageItems.Add(new MasterPageItem
+            {
+                Titulo = "Perfil do Invocador",
+                Imagem = "icon.png",
+                Detalhes = "Detalhes do Perfil do Invocador",
+                TargetType = typeof(SummonerProfilePage)
+            });
+
+            lstPaginas.ItemsSource = masterPageItems;
         }
     }
 }
