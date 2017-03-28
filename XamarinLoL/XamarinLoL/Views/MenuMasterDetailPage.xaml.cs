@@ -16,7 +16,7 @@ namespace XamarinLoL.Views
         MasterMasterDetailPage master;
         public MenuMasterDetailPage()
         {
-            //InitializeComponent();
+            InitializeComponent();
             master = new MasterMasterDetailPage();
             Master = master;
             Detail = new NavigationPage(new SummonerProfilePage());
