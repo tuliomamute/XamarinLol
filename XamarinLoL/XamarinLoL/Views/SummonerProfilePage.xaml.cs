@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using XamarinLoL.ViewModel;
 
 namespace XamarinLoL.Views
 {
@@ -15,6 +16,7 @@ namespace XamarinLoL.Views
         public SummonerProfilePage()
         {
             InitializeComponent();
+            BindingContext = new SummonerProfileViewModel();
         }
     }
 }
