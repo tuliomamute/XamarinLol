@@ -12,12 +12,12 @@ namespace XamarinLoL.ViewModel
     {
         public string Imagem { get; set; }
         public string Usuario { get; set; }
-        public long Level { get; set; }
+        public string Level { get; set; }
         public SummonerProfileViewModel()
         {
             this.Imagem = App.Summoner.SummonerIcon;
-            this.Usuario = App.Summoner.SummonerName;
-            this.Level = App.Summoner.SummonerLevel;
+            this.Usuario = $"Invocador: {App.Summoner.SummonerName}";
+            this.Level = $"Nível: {App.Summoner.SummonerLevel}";
         }
     }
 }
