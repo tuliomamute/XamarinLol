@@ -12,12 +12,10 @@ namespace XamarinLoL.ExternalServices
 {
     public static class RiotService
     {
-        public static async void FindSummoner(string Summoner)
+        public static async Task<SummonerModel> FindSummoner(string Summoner)
         {
             try
             {
-
-
                 SummonerModel model = null;
                 using (HttpClient client = new HttpClient())
                 {
@@ -30,8 +28,7 @@ namespace XamarinLoL.ExternalServices
                     if (response.IsSuccessStatusCode)
                         model = JsonConvert.DeserializeObject<SummonerModel>(await response.Content.ReadAsStringAsync());
 
-                    App.Summoner = model;
-
+                    return model;
                 }
             }
             catch (Exception ex)

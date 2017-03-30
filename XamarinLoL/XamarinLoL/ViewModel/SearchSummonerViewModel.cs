@@ -28,7 +28,7 @@ namespace XamarinLoL.ViewModel
         {
             try
             {
-                RiotService.FindSummoner(SummonerName);
+                App.Summoner = await RiotService.FindSummoner(SummonerName);
                 App.NavigationService.NavigateTo("MenuMasterDetailPage", null, HistoryBehavior.Default, PresentationBehavior.Modal);
             }
 

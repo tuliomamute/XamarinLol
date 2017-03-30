@@ -15,8 +15,16 @@ namespace XamarinLoL.Views
     {
         public SummonerProfilePage()
         {
-            InitializeComponent();
-            BindingContext = new SummonerProfileViewModel();
+            try
+            {
+                InitializeComponent();
+                BindingContext = new SummonerProfileViewModel();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+
         }
     }
 }
