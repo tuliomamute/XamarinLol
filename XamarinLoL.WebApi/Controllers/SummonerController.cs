@@ -7,6 +7,7 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
+using System.Web.Http.Description;
 using XamarinLoL.Models;
 
 namespace XamarinLoL.WebApi.Controllers
@@ -21,21 +22,28 @@ namespace XamarinLoL.WebApi.Controllers
         /// </summary>
         /// <param name="SummonerName"></param>
         /// <returns></returns>
-        public async Task<SummonerModel> Get(string SummonerName)
+        [ResponseType(typeof(List<SummonerModel>))]
+        public async Task<IHttpActionResult> Get(string SummonerName)
         {
-            Summoner summoner = await WebApiApplication.api.GetSummonerAsync(RiotSharp.Region.br, SummonerName);
-            SummonerModel model = new SummonerModel()
+            try
             {
-                SummonerName = summoner.Name
-                ,
-                SummonerId = summoner.Id
-                ,
-                SummonerIcon = ReturnUrlChampion(summoner.ProfileIconId)
-                ,
-                SummonerLevel = summoner.Level
-            };
+                Summoner summoner = await WebApiApplication.api.GetSummonerAsync(RiotSharp.Region.br, SummonerName);
+                SummonerModel model = new SummonerModel()
+                {
+                    SummonerName = summoner.Name,
+                    SummonerId = summoner.Id,
+                    SummonerIcon = ReturnUrlChampion(summoner.ProfileIconId),
+                    SummonerLevel = summoner.Level
+                };
 
-            return model;
+                return Ok(model);
+
+            }
+            catch (Exception ex)
+            {
+
+                return InternalServerError(ex);
+            }
         }
 
         private string ReturnUrlChampion(long SummonerId)

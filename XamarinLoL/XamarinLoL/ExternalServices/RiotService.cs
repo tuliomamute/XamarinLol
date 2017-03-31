@@ -48,13 +48,15 @@ namespace XamarinLoL.ExternalServices
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                HttpResponseMessage response = await client.GetAsync($"/api/MatchList?SummonerId={(int)SummonerId}");
-
-                if (response.IsSuccessStatusCode)
-                    model = JsonConvert.DeserializeObject<ObservableCollection<MatchModel>>(await response.Content.ReadAsStringAsync());
-
-                return model;
+                using (var response = await client.GetAsync($"/api/MatchList?SummonerId={(int)SummonerId}"))
+                {
+                    if (response.IsSuccessStatusCode)
+                        model = JsonConvert.DeserializeObject<ObservableCollection<MatchModel>>(await response.Content.ReadAsStringAsync());
+                }
             }
+
+            return model;
+
         }
     }
 }

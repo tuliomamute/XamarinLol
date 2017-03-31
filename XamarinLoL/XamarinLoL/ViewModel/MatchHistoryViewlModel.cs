@@ -23,7 +23,7 @@ namespace XamarinLoL.ViewModel
             GetRefreshedHistory = new Command(() => BuscarPartidas());
         }
 
-        private void BuscarPartidas()
+        private async void BuscarPartidas()
         {
             Refresh = true;
             Matchs = RiotService.FindMatchList(App.Summoner.SummonerId).Result;
