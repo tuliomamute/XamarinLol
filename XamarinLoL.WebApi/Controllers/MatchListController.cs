@@ -37,7 +37,7 @@ namespace XamarinLoL.WebApi.Controllers
                 //Find Match Details based on Summoner Id
                 detail = await WebApiApplication.api.GetMatchAsync(RiotSharp.Region.br, item.MatchID);
                 model = detail.ParticipantIdentities.Where(x => x.Player.SummonerId == SummonerId)
-                    .Join(detail.Participants, b => b.ParticipantId, a => a.ParticipantId, (b, a) => new MatchModel { IsWinner = a.Stats.Winner, KdaPlayer = $" {a.Stats.Kills}/{a.Stats.Deaths}/{a.Stats.Assists}" }).FirstOrDefault();
+                    .Join(detail.Participants, b => b.ParticipantId, a => a.ParticipantId, (b, a) => new MatchModel { IsWinner = a.Stats.Winner ? "VITÓRIA" : "DERROTA", KdaPlayer = $" {a.Stats.Kills}/{a.Stats.Deaths}/{a.Stats.Assists}" }).FirstOrDefault();
 
                 //Find Champion Details
                 champ = await WebApiApplication.staticapi.GetChampionAsync(RiotSharp.Region.br, (int)item.ChampionID);

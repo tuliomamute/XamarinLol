@@ -8,7 +8,7 @@ namespace XamarinLoL.Models
 {
     public class MatchModel
     {
-        public bool IsWinner { get; set; }
+        public string IsWinner { get; set; }
         public string KdaPlayer { get; set; }
         public ChampionModel Champion { get; set; }
     }

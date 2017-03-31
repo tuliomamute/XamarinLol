@@ -32,6 +32,13 @@ namespace XamarinLoL.Views
                 Detalhes = "Detalhes do Perfil do Invocador",
                 TargetType = typeof(SummonerProfilePage)
             });
+            masterPageItems.Add(new MasterPageItem
+            {
+                Titulo = "Histórico de Partidas",
+                Imagem = "icon.png",
+                Detalhes = "Histórico de Partidas do Invocador",
+                TargetType = typeof(MatchHistoryPage)
+            });
 
             lstPaginas.ItemsSource = masterPageItems;
         }
