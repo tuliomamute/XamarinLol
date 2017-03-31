@@ -27,7 +27,7 @@ namespace XamarinLoL.WebApi.Controllers
         public async Task<List<MatchModel>> Get(int SummonerId)
         {
             List<MatchModel> listmodel = new List<MatchModel>();
-            MatchList match = WebApiApplication.api.GetMatchListAsync(RiotSharp.Region.br, SummonerId, null, null, null, null, null, 20, 0).Result;
+            MatchList match = await WebApiApplication.api.GetMatchListAsync(RiotSharp.Region.br, SummonerId, null, null, null, null, null, 0, 20);
             MatchDetail detail = null;
             MatchModel model = null;
             ChampionStatic champ = null;
