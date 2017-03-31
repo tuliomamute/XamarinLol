@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -37,6 +38,23 @@ namespace XamarinLoL.ExternalServices
                 throw ex;
             }
 
+        }
+        public static async Task<ObservableCollection<MatchModel>> FindMatchList(long SummonerId)
+        {
+            ObservableCollection<MatchModel> model = null;
+            using (HttpClient client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(GlobalClasses.GlobalProperties.UrlApi);
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                HttpResponseMessage response = await client.GetAsync($"/api/MatchList?SummonerId={(int)SummonerId}");
+
+                if (response.IsSuccessStatusCode)
+                    model = JsonConvert.DeserializeObject<ObservableCollection<MatchModel>>(await response.Content.ReadAsStringAsync());
+
+                return model;
+            }
         }
     }
 }
