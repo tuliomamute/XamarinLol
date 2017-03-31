@@ -3,17 +3,22 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="XamarinLoL.Views.MasterMasterDetailPage"
              Title="Menu Principal"
-             Icon="hamburguer.png"
-             Padding="0,40,0,0">
+             Icon="hamburguer.png">
     <ContentPage.Content>
-        <StackLayout VerticalOptions="FillAndExpand">
-            <ListView x:Name="lstPaginas" VerticalOptions="FillAndExpand" SeparatorVisibility="None" ItemsSource="{Binding masterPageItems}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ImageCell Text="{Binding Titulo}" ImageSource="{Binding Imagem}" Detail="{Binding Detalhes}"></ImageCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+        <StackLayout>
+            <StackLayout BackgroundColor="#512DA8" HeightRequest="90">
+                <Label Text="Xamarin LoL" TextColor="White" FontAttributes="Bold" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" FontSize="Large"></Label>
+            </StackLayout>
+
+            <StackLayout VerticalOptions="FillAndExpand">
+                <ListView x:Name="lstPaginas" VerticalOptions="FillAndExpand" SeparatorVisibility="None" ItemsSource="{Binding masterPageItems}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ImageCell Text="{Binding Titulo}" ImageSource="{Binding Imagem}" Detail="{Binding Detalhes}"></ImageCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
