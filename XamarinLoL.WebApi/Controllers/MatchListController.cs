@@ -83,6 +83,9 @@ namespace XamarinLoL.WebApi.Controllers
             TextInfo myTI = new CultureInfo("en-US", false).TextInfo;
             name = new string(name.Where(x => Char.IsLetterOrDigit(x)).ToArray());
 
+            if (name == "KhaZix")
+                name = "Khazix";
+
             return $"{ConfigurationManager.AppSettings["UrlIconChampion"]}/{name}.png";
         }
     }

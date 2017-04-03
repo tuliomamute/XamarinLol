@@ -6,7 +6,7 @@
              Icon="hamburguer.png">
     <ContentPage.Content>
         <StackLayout>
-            <StackLayout BackgroundColor="#512DA8" HeightRequest="90">
+            <StackLayout BackgroundColor="#512DA8" HeightRequest="85">
                 <Label Text="Xamarin LoL" TextColor="White" FontAttributes="Bold" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" FontSize="Large"></Label>
             </StackLayout>
 
