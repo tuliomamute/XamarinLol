@@ -81,8 +81,9 @@ namespace XamarinLoL.WebApi.Controllers
         private string ReturnUrlIcon(string name)
         {
             TextInfo myTI = new CultureInfo("en-US", false).TextInfo;
+            name = new string(name.Where(x => Char.IsLetterOrDigit(x)).ToArray());
 
-            return $"{ConfigurationManager.AppSettings["UrlIconChampion"]}/{myTI.ToTitleCase(name.Replace(" ", string.Empty))}.png";
+            return $"{ConfigurationManager.AppSettings["UrlIconChampion"]}/{name}.png";
         }
     }
 }
