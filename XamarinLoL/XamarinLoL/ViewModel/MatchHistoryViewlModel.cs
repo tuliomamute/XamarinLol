@@ -26,7 +26,7 @@ namespace XamarinLoL.ViewModel
         private async void BuscarPartidas()
         {
             Refresh = true;
-            Matchs = RiotService.FindMatchList(App.Summoner.SummonerId).Result;
+            Matchs = await RiotService.FindMatchList(App.Summoner.SummonerId);
             Refresh = false;
         }
 
