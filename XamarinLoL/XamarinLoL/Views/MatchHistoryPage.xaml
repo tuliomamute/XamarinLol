@@ -1,10 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
              x:Class="XamarinLoL.Views.MatchHistoryPage"
              Title="Histórico de Partidas">
     <ContentPage.Content>
-        <ListView ItemsSource="{Binding Matchs}" IsRefreshing="{Binding Refresh}" RefreshCommand="{Binding GetRefreshedHistory}">
+        <ListView ItemsSource="{Binding Matchs}" IsPullToRefreshEnabled="True" IsRefreshing="{Binding Refresh}" RefreshCommand="{Binding GetRefreshedHistory}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ImageCell Text="{Binding IsWinner}" ImageSource="{Binding Champion.ChampionIcon}" Detail="{Binding KdaPlayer}"></ImageCell>
